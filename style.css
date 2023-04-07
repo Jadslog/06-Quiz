@@ -37,6 +37,11 @@
     flex-direction: column;
     width: 400px;
     margin: 0 auto;
+    text-align: center;
+}
+
+.quiz-container .options-container input[type="radio"] {
+    display: none;
 }
 
 .quiz-container .option {
