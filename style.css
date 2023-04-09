@@ -44,6 +44,11 @@
     display: none;
 }
 
+.quiz-container .options-container input[type="radio"]:checked + label {
+    background: #d62828;
+    color: #fff;
+}
+
 .quiz-container .option {
     background-image: linear-gradient(112.7deg, rgba(253, 185, 83, 1) 11.4%, rgba(255, 138, 0, 1) 70.2%);
     padding: 16px;
