@@ -40,8 +40,12 @@ const quizResultContainer = document.querySelector(".quiz-result-container");
 const quizOverlay = document.querySelector(".quiz-overlay");
 const retakeQuizBtn = document.querySelector(".retake-quiz-btn");
 const quizCloseBtn = document.querySelector(".quiz-close-btn");
+const optionsContainer = document.querySelector(".options-container");
 const question = document.querySelector(".question");
- 
+
+let questionNumber = 0;
+let totalQuestion = questions.length;
+
 //Start Button
 
 startQuizBtn.addEventListener("click", () => {
@@ -52,8 +56,15 @@ startQuizBtn.addEventListener("click", () => {
 //Next Button 
 
 nextBtn.addEventListener("click", () => {
-    quizResultContainer.classList.add("active");
-    quizContainer.classList.remove("active");
+
+    questionNumber++;
+
+    if (questionNumber < totalQuestion){
+        displayQuestions(questionNumber);
+    }else {
+        quizResultContainer.classList.add("active");
+        quizContainer.classList.remove("active");
+    }
 });
 
 // Close Button
@@ -75,6 +86,24 @@ retakeQuizBtn.addEventListener("click", () => {
 
 const displayQuestions = (qNo) => {
     question.innerText = questions[qNo].question;
+
+    optionsContainer.innerText = "";
+
+    questions[qNo].options.forEach((o, oIndex) => {
+        const optionRadioButton = document.createElement("input");
+        optionRadioButton.type = "radio";
+        let optionId = "option" + oIndex;
+        optionRadioButton.id = optionId;
+        optionRadioButton.name = "option";
+
+        const optionLabel = document.createElement("label");
+        optionLabel.htmlFor = optionId;
+        optionLabel.classList.add("option");
+        optionLabel.innerText = o.option;
+
+        optionsContainer.appendChild(optionRadioButton);
+        optionsContainer.appendChild(optionLabel);
+    }); 
 }
 
-displayQuestions(2);
+displayQuestions(questionNumber);
