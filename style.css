@@ -189,24 +189,26 @@
 
 @media (max-width: 650px) {
 
-    .quiz-container-p06 {
-        width: 340px;
+    .quiz-container {
+        background: green;
     }
 
-    .quiz-container-p06 .question {
+    .quiz-container .question {
         padding: 24px 12px;
         margin-bottom: 10px;
     }
 
-    .quiz-container-p06 .option {
+    .quiz-container .option {
         margin-top: 12px;
+        margin-left: 25px;
+        width: 300px;
     }
 
-    .quiz-container-p06 .next-btn {
+    .quiz-container .next-btn {
         margin-top: 16px;
     }
 
-    .quiz-result-container-p06 {
+    .quiz-result-container {
         width: 300px;
     }
 }
